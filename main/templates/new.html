@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
-
+{% load static %}
 <!-- 품목 추가하기 동적 기능 -->
 {% block head %}
+<link rel="stylesheet" href="{% static 'css/new.css' %}" />
+
 <div id="parah"></div>
 <style>
     .search_in input {
@@ -52,117 +54,112 @@
 <h5>나도 요청하기</h5>
 <h5>이 곳은 new.html입니다</h5>
 
-<!--post로 받아와서 할 행동에 대한 정의-->
-<form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <!--요청장소-->
-    <div>
-        <h3><label for="inputRequestPlace">요청장소 :</label></h3>
-        <input type="text" id="inputRequestPlace" name="requestplace" required><br>
-        <small>가게 이름이나 건물명 등을 적어주세요.</small>
-    </div>
-    <!--만날장소(셀렉박스)-->
-    <div>
-        <h3><label for="inputMeetPlaceSelect">만날장소 :</label></h3>
-        <!-- <input type="text" id="inputMeetPlaceSelect" name="meetplaceselect" required> -->
-        <select name="meetplaceselect">
-            <option vaule="흑석">흑석</option>
-            <option vaule="정문">정문</option>
-            <option vaule="중문">중문</option>
-            <option vaule="후문">후문</option>
-            <option vaule="상도">상도</option>
-        </select>
-    </div>
-    <!--만날장소 디테일-->
-    <div>
-        <h3><label for="inputMeetPlaceDetail">만날장소 디테일 :</label></h3>
-        <input type="text" id="inputMeetPlaceDetail" name="meetplacedetail" required>
-    </div>
-    <!--품목 이름-->
-    <div>
-        <h3><label for="inputRequestItem">요청 품목 :</label></h3>
-        <input type="text" id="inputRequestItem" name="requestitem" required>
-    </div>
-    <!--품목 수량(컨트롤박스)-->
-    <div>
-        <h3><label for="inputRequestQuantity">요청 품목 수량 :</label></h3>
-        <!-- <input type="text" id="inputRequestQuantity" name="requestquantity" required> -->
+<div class="new">
+    <!--post로 받아와서 할 행동에 대한 정의-->
+    <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!--요청장소-->
+        <div class="new_content">
+            <div>
+                <div class="new_title">
+                    <h2><label for="inputRequestPlace">요청장소 :</label></h2>
+                </div>
+            </div>
+            <input type="text" id="inputRequestPlace" name="requestplace" value="가게 이름이나 건물명 등을 적어주세요!" required><br>
+            <div class="new_guideline">가게 이름이나 건물명 등을 적어주세요.</div>
+        </div>
+        <!--만날장소(셀렉박스)-->
+        <div class="new_content">
+            <div class="new_title">
+                <h2><label for="inputMeetPlaceSelect">만날장소 :</label></h2>
+            </div>
+            <select name="meetplaceselect">
+                <option vaule="흑석">흑석</option>
+                <option vaule="정문">정문</option>
+                <option vaule="중문">중문</option>
+                <option vaule="후문">후문</option>
+                <option vaule="상도">상도</option>
+            </select>
+        </div>
+        <!--만날장소 디테일-->
+        <div class="new_content">
+            <div class="new_title">
+                <h2><label for="inputMeetPlaceDetail">만날장소 디테일 :</label></h2>
+            </div>
 
-        <!-- <form name="joinForm">
-            <table>
-                <tr>
-                    <td>
-                        <input type="text" id="inputRequestQuantity" name="count" />
-                    </td>
-                    <td>
-                        <button onClick="add();">위로</button>
-                        <button onClick="minus();">아래로</button>
-                    </td>
-                </tr>
-            </table>
-        </form> -->
-        <input type="text" name="requestquantity" value="1">
-        <!-- 수량 조절 java 계속 오류 나서 text 처리함 -->
-        <!-- <input type="button" value="증가" onClick="javascript:this.form.amount.value++;">
+            <input type="text" id="inputMeetPlaceDetail" name="meetplacedetail" required>
+        </div>
+        <!--품목 이름-->
+        <div class="new_content">
+            <div class="new_title">
+                <h2><label for="inputRequestItem">요청 품목 :</label></h2>
+            </div>
+
+            <input type="text" id="inputRequestItem" name="requestitem" required>
+        </div>
+        <!--품목 수량(컨트롤박스)-->
+        <div class="new_content">
+            <div class="new_title">
+                <h2><label for="inputRequestQuantity">요청 품목 수량 :</label></h2>
+            </div>
+            <input type="text" name="requestquantity" value="1">
+            <h3>원</h3>
+            <!-- 수량 조절 java 계속 오류 나서 text 처리함 -->
+            <!-- <input type="button" value="증가" onClick="javascript:this.form.amount.value++;">
         <input type="button" value="감소" onClick="javascript:this.form.amount.value--;"> -->
 
-    </div>
+        </div>
 
-    <!--품목 세부사항-->
-    <div>
-        <h3><label for="inputRequestDetail">요청 품목 세부사항 :</label></h3>
-        <input type="text" id="inputRequestDetail" name="requestdetail" required>
-    </div>
+        <!--품목 세부사항-->
+        <div class="new_content">
+            <div class="new_title">
+                <h2><label for="inputRequestDetail">요청 품목 세부사항 :</label></h2>
+            </div>
 
-    <!--품목 추가(버튼)-->
-    <div method="post" action="test.jsp">
-        <input type="button" value="품목 추가하기" onclick="addInput();" />
-        <input type="button" value="삭제" onclick="deleteInput();" />
-    </div>
+            <input type="text" id="inputRequestDetail" name="requestdetail" required>
+        </div>
+
+        <!--품목 추가(버튼)-->
+        <div class="new_content" method="post" action="test.jsp">
+            <div class="button_middle">
+                <input type="button" value="품목 추가하기" onclick="addInput();" />
+            </div>
+            <div class="button_small">
+                <input type="button" value="삭제" onclick="deleteInput();" />
+            </div>
+        </div>
+
+        <!--수수료-->
+        <div class="new_content">
+            <div class="new_title">
+                <h2><label for="inputFees">수수료 :</label></h2>
+            </div>
+            <span class="search_in"><input type="text" id="inputFees" name="fees" placeholder="최소 수수료는 1000원으로 책정됩니다."
+                    required></span>
+        </div>
+
+        <!--제한 시간-->
+        <div class="new_content">
+            <div class="new_title">
+                <h2><label for="inputLimitedTime">제한시간 :</label></h2>
+            </div>
+            <p>
+                <h2>시:<input type="text" name="limitiedhour" value="0"> 분:<input type="text" name="limitiedmin"
+                        value="0">
+                    초:<input type="text" name="limitiedsec" value="0"></h2>
+            </p>
+            <!-- 시간 들어가는 부분 -->
 
 
+        </div>
+        <!--부탁하기(버튼)-->
+        <!-- form 태그와 submit 태그는 연결 -->
+
+        <button class="button_wide" type="submit" value="부탁하기">부탁하기</button>
 
 
-    <!--수수료-->
-    <div>
-        <h3><label for="inputFees">수수료 :</label></h3>
-        <span class="search_in"><input type="text" id="inputFees" name="fees" placeholder="최소 수수료는 1000원으로 책정됩니다."
-                required></span>
-    </div>
-    <!--제한 시간-->
-    <div>
-        <h3><label for="inputLimitedTime">제한시간 :</label></h3>
-        <!-- 시간 들어가는 부분 -->
-        <p>
-            <h3>시:<input type="text" name="limitiedhour" value="0"> 분:<input type="text" name="limitiedmin" value="0">
-                초:<input type="text" name="limitiedsec" value="0"></h3>
-        </p>
-        <!--<input type="text" id="inputLimitedTime" name="limitedtimehour" required>시
-        <input type="text" id="inputLimitedTime" name="limitedtimemin" required>분
-        <input type="text" id="inputLimitedTime" name="limitedtimesec" required>초 -->
-        <!-- 여기서 시,분,초의 id 값을 다 다르게 해서 다른 id로 줘야하는 지 아니면 한 번에 묶어서 보내야 하는 지
-        모르겠어요.. 아마 다 다른 id 값을 줘야겠죠?! -->
-    </div>
-    <!--부탁하기(버튼)-->
-    <!-- form 태그와 submit 태그는 연결 -->
-
-    <input type="submit" value="부탁하기">
-</form>
-
-
-<!-- <script type="text/javascript">
-    var a = 0;
-
-    function add() {
-        var number = document.getElementById("inputRequestQuantity")
-        number.value = a++;
-    }
-
-    function minus() {
-        var number = document.getElementById("inputRequestQuantity")
-        number.value = a--;
-    }
-</script> -->
+    </form>
+</div>
 
 
 
