@@ -1,0 +1,64 @@
+/* new.css */
+body {
+    font-size: 20px;
+}
+
+.new {
+    flex-direction: column;
+    height: auto;
+    width: 60%;
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #909494;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px #909494;
+    padding: 10%;
+}
+
+.new_content {
+    display: flex;
+    background-color: white;
+    padding: 10px;
+    margin: 20px;
+    width: 90%;
+    float: left;
+}
+
+.new_title {
+    width: auto;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px #909494;
+    padding: 0.3em;
+    margin: 1em;
+    font-size: 0.8em;
+}
+
+.new_guideline {
+    font-size: 0.9rem;
+}
+
+.new_middle_align {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button {
+    width: 80%;
+    display: inline-block;
+    background-color: #4989ff;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    padding: 15px 0;
+    margin: 4px;
+    text-align: center;
+    /* text-decoration: none; */
+    font-size: 0.8em;
+    cursor: pointer;
+    box-shadow: 10px 10px 10px #909494;
+
+}
