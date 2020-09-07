@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h5>This is profile_update.html</h5>
+
+<br>
+<form method = "POST">
+    {% csrf_token %}
+    {{ user_change_form.as_p }}
+    <button type="submit"> 완료</button>
+</form>
+
+{% endblock %}

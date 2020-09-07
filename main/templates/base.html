@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>는김에</title>
+    {% endblock %}
+</head>
+
+<body>
+    <a href="{% url 'main' %}">home</a>
+    {% if request.user.is_authenticated %}
+    <p> 안녕하세요, {{request.user.username }}님 <a href="{% url 'logout' %}">Logout</a></p>
+    <a href="{% url 'mypage' %}">my page</a>
+    {% else %}
+    <p><a href="{% url 'register' %}">Signup</a></p>
+    <a href="{% url 'login' %}">log in</a>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+</body>
+
+<hr>
+<footer>NGA - All rights reserved(footer)</footer>
+
+</html>
