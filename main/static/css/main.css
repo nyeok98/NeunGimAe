@@ -1,17 +1,21 @@
 /* main.css */
-
-.main {
-    display: flex;
-    flex-direction: column;
-    height: auto;
+html {
+    font-family: sans-serif;
 }
 
-.main_filter {
+body {
+    margin: 0;
+}
+.main {
+    margin: 0 4em;
+}
+
+.main-filter {
     display: flex;
     flex-direction: row;
 }
 
-.filter_button {
+.filter-button {
     margin: 0 5px;
     border-radius: 7px;
     padding: 2px;
@@ -19,31 +23,37 @@
     background: blue;
 }
 
-.content_box {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+.content-wrapper {
     border-radius: 10px;
     text-align: center;
-    width: 331px;
-    height: 336px;
-    margin: 10px;
-    box-shadow: 1px 1px 8px;
-    border: 2px solid black;
+    min-width: 12rem;
+    min-height: 12rem;
+    margin: 0 auto;
+    box-shadow: 0.5px 0.5px 5px 0px #d2d2d2;
+    border: 1px solid #d2d2d2;
+    padding: 1em;
+}
+.content-box {
 }
 
-.main_content {
-    display: flex;
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(13rem,1fr));
+    grid-gap: 2rem;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    max-width: 1200px;
+    margin: 2rem auto;
 }
 
-@media screen (max-width: 1460px) {
-    .content_box {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
 
 .item {
-    text-align: center;
+    text-align: left;
+}
+.req-title{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.req-place {
+
 }
