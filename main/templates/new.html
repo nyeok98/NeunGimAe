@@ -121,8 +121,12 @@
 
         <!--품목 추가(버튼)-->
         <div class="new_content" method="post" action="test.jsp">
-            <input type="button" value="품목 추가하기" onclick="addInput();" />
-            <input type="button" value="삭제" onclick="deleteInput();" />
+            <div class="button_middle">
+                <input type="button" value="품목 추가하기" onclick="addInput();" />
+            </div>
+            <div class="button_small">
+                <input type="button" value="삭제" onclick="deleteInput();" />
+            </div>
         </div>
 
         <!--수수료-->
@@ -151,7 +155,7 @@
         <!--부탁하기(버튼)-->
         <!-- form 태그와 submit 태그는 연결 -->
 
-        <button class="button" type="submit" value="부탁하기">부탁하기</button>
+        <button class="button_wide" type="submit" value="부탁하기">부탁하기</button>
 
 
     </form>
