@@ -8,11 +8,34 @@ body {
     font-size: 15px;
     font-family: SSShinb7;
 }
+.wrapper {
+    border: 1px solid #4989ff;
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    overflow: scroll;
+}
 
 .new {
-    margin: 5px;
+    float: left;
+    display: block;
+    margin: 40px;
     flex-direction: column;
-    width: 60%;
+    width: 800px;
+    padding: 5px;
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #909494;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px #909494;
+}
+
+.preview {
+    float: left;
+    margin: 40px;
+    flex-direction: column;
+    width: 200px;
     padding: 5px;
     background-color: white;
     border-width: 1px;
@@ -50,7 +73,6 @@ body {
     border-radius: 20px;
     color: #fff;
     padding: 15px 0;
-    margin: 4px;
     text-align: center;
     /* text-decoration: none; */
     font-size: 0.8em;
