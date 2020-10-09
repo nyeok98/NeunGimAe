@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Blog
+from account.models import Account
 from django.utils import timezone
 # Create your views here.
 
@@ -21,6 +22,7 @@ def create(request):
         blog = Blog()  # 객체 틀 가져오기
         # if 'image' in request.FILES:
         # blog.image = request.FILES['image']
+        blog.reemail=request.POST['reemail']
         blog.request_place = request.POST['requestplace']
         blog.meet_place_select = request.POST['meetplaceselect']
         blog.meet_place_detail = request.POST['meetplacedetail']

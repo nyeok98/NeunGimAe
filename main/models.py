@@ -47,5 +47,7 @@ class Blog(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     # 나타낼 object의 이름을 reqeust_place로 정의
 
+    reemail = models.EmailField(max_length=40, default='')
+
     def __str__(self):
         return self.request_place

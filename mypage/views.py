@@ -1,14 +1,17 @@
 from django.shortcuts import render,redirect
 from .forms import CustomUserChangeForm
 from account.models import Account
+from main.models import Blog
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-def mypage(request):
-    return render(request, 'mypage.html')
-
 @login_required
+def mypage(request):
+    blogs = Blog.objects.filter(reemail=request.user.email)
+    return render(request, 'mypage.html', {'blogs': blogs})
+
+
 def profile_update(request):
     if request.method == 'POST':
         user_change_form = CustomUserChangeForm(request.POST, instance=request.user)
