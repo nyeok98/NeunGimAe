@@ -1,7 +1,6 @@
-
+{% extends 'base.html' %}
 {% load static %}
 
-{% extends 'base.html' %}
 
 {% block content %}
 
@@ -48,8 +47,6 @@
 
 <h5>This is mypage.html</h5>
 
-<a href="{% url 'profile_update' %}">회원정보 수정하기</a>
-<a href="{% url 'password' %}">비밀밀호 변경하기</a>
 
 <br>
 
@@ -71,6 +68,9 @@
             <h5>
                 <a href="{% url 'profile_update' %}">회원정보 수정하러 가기</a>
             </h5>
+            <h5>
+            <a href="{% url 'password' %}">비밀밀호 변경하기</a>
+        </h5>
         </div>
 
         <div id="jb-content">

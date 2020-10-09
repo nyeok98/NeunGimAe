@@ -25,7 +25,7 @@ def profile_update(request):
 
 def password(request):
     if request.method == 'POST':
-        password_change_form = PasswordChangeForm(request.user, request.POST)
+        password_change_form = PasswordChangeForm(request.POST, request.user)
         if password_change_form.is_valid():
             password_change_form.save()
             return redirect('mypage')
