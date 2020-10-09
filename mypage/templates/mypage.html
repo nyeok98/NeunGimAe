@@ -1,7 +1,13 @@
-
 {% load static %}
 
 {% block content %}
+
+<h5>This is mypage.html</h5>
+
+<a href="{% url 'profile_update' %}">회원정보 수정하기</a>
+<a href="{% url 'password' %}">비밀밀호 변경하기</a>
+
+<br>
 
 <head>
     <meta charset="UTF-8">
