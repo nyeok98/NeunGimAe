@@ -6,5 +6,5 @@ from . import views
 urlpatterns = [
     path('', views.mypage, name="mypage"),
     path('profile_update/', views.profile_update, name="profile_update"),
-
+    path('password/', views.password, name='password'),
 ]
