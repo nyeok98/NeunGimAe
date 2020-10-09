@@ -1,3 +1,6 @@
+
+{% load static %}
+
 {% extends 'base.html' %}
 
 {% block content %}
@@ -49,6 +52,50 @@
 <a href="{% url 'password' %}">비밀밀호 변경하기</a>
 
 <br>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mypage</title>
+    <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
+</head>
+
+<body>
+
+    <div id="jb-container">
+        <div id="jb-header">
+            <div class="image">
+                <img src="{% static 'img/profile.jpeg' %}">
+            </div>
+            <div>회원정보</div>
+            <h5>
+                <a href="{% url 'profile_update' %}">회원정보 수정하러 가기</a>
+            </h5>
+        </div>
+
+        <div id="jb-content">
+            <h2>내가 요청하고 있는 부탁</h2>
+            <div class="flex-container">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+            </div>
+        </div>
+
+        <div id="jb-content">
+            <h2>내가 들어주고 있는 부탁</h2>
+            <div class="flex-container">
+                <div>1</div>
+                <div>2</div>
+            </div>
+        </div>
+
+
+
+</body>
 
 <p>
 <div style="border: 1px solid gold; float: left; width: 50%;">
@@ -140,6 +187,6 @@
     }    
 </script>
 
-
+</html>
 
 {% endblock %}

@@ -12,4 +12,5 @@ urlpatterns = [
     path('new/', main_view.new, name="new"),
     path('create/', main_view.create, name="create"),
     path('edit/<int:blog_id>', main_view.edit, name="edit"),
+    path('filter', main_view.filter_place, name="filter"),
 ]

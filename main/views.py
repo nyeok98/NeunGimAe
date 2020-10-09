@@ -44,3 +44,15 @@ def create(request):
 def edit(request, blog_id):
     blog = get_object_or_404(Blog, pk=blog_id)
     return render(request, 'edit.html', {'blog': blog})
+
+def filter_place(request):
+    filter_place = request.GET['filter_place']
+    blogs = []
+    for blog in Blog.objects.all():
+        print(blog.meet_place_select)
+        if blog.meet_place_select == filter_place :
+            blogs.append(blog)
+
+    print(blogs)
+
+    return render(request, 'main.html', {'blogs': blogs})
