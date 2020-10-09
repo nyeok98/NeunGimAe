@@ -33,7 +33,7 @@ class Blog(models.Model):
     # PositiveIntegerField는 0부터 무한대까지 수량 조절할 수 있는 필드
     request_quantity = models.PositiveIntegerField(default=1)
     # 수수료
-    fees = models.IntegerField('Fees', default=1000)
+    fees = models.IntegerField('Fees', default=1000, validators=[MinValueValidator(1000)])
     # 제한 시간
     # validators 속성은 최소글자, 최대글자수를 정의
     limited_time_hour = models.IntegerField('Hour', default=0, validators=[

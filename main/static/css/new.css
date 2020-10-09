@@ -1,49 +1,68 @@
 /* new.css */
+@font-face{
+    font-family: 'SSShinb7';
+    src: url(fonts/SSShinb7.ttf) format('truetype');
+}
+
 body {
-    font-size: 20px;
+    font-size: 15px;
+    font-family: SSShinb7;
+}
+.wrapper {
+    border: 1px solid #4989ff;
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    overflow: scroll;
 }
 
 .new {
+    float: left;
+    display: block;
+    margin: 40px;
     flex-direction: column;
-    height: auto;
-    width: 50%;
+    width: 800px;
+    padding: 5px;
     background-color: white;
     border-width: 1px;
     border-style: solid;
     border-color: #909494;
     border-radius: 20px;
     box-shadow: 10px 10px 10px #909494;
-    padding: 5%;
+}
+
+.preview {
+    float: left;
+    margin: 40px;
+    flex-direction: column;
+    width: 200px;
+    padding: 5px;
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #909494;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px #909494;
 }
 
 .new_content {
     display: flex;
     background-color: white;
-    padding: 10px;
-    margin: 20px;
+    padding: 5px;
+    margin: 5px;
     width: 90%;
     float: left;
 }
 
 .new_title {
     width: auto;
-    height: auto;
+    height: 40px;
     border-radius: 20px;
     box-shadow: 10px 10px 10px #909494;
-    padding: 0.3em;
+    padding: 0px 5px 3px 1px;
     margin: 1em;
     font-size: 0.8em;
-}
-
-.new_guideline {
-    font-size: 0.9rem;
-}
-
-.new_middle_align {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    font-family: 'SSShinb7';
 }
 
 .button_wide {
@@ -54,7 +73,6 @@ body {
     border-radius: 20px;
     color: #fff;
     padding: 15px 0;
-    margin: 4px;
     text-align: center;
     /* text-decoration: none; */
     font-size: 0.8em;
