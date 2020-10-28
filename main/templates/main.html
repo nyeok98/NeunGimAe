@@ -8,6 +8,26 @@
 
 {% block content %}
 
+<script type= "text/javascript">
+    var time = {{blog.limited_time_min}};
+    var min = "";
+    var sec = "";
+
+    var x = setInterval (function(){
+        min = parseInt(time/60);
+        sec = time%60;
+
+        document.getElementByld("demo").innerHTML = min + "분" + sec+ "초";
+        time--;
+
+        if(time < 0){
+            clearInterval(x);
+            document.getElementByld("demo").innerHTML = "시간초과";
+        }
+    }, 1000);
+</script>
+
+<div id ="demo"></div>
 
 <div class="main">
     <div class="main_header">
@@ -65,13 +85,16 @@
                        <div class="req-quantity">{{blog.request_quantity}}개</div>
                     </div>
                 </div>
+
                 <div class="time_left">
                     <h4>남은 시간:
-                        {{blog.limited_time_hour}}시
-                        {{blog.limited_time_min}}분
-                        {{blog.limited_time_sec}}초 남음
+                        <!--{{blog.limited_time_hour}}시
+                            {{blog.limited_time_sec}}초 남음
+                        {{blog.limited_time_min}}분 -->
+                        {{blog.limited_time_min}}
                     </h4>
                 </div>
+
                 <div class="fee">
                     <h5>수수료: {{blog.fees}}</h5>
                 </div>
