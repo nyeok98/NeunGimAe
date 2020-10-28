@@ -13,8 +13,8 @@
 
 <body>
     <div class="nav-bar">
-        <img src="{% static 'image/logo.png' %}">
-        <div class="logo" a href="{% url 'main' %}">는김에</div>
+        <a href="{% url 'main' %}"><img src="{% static 'image/logo.png' %}"></a>
+        <a href="{% url 'main' %}"><div class="logo">는김에</div></a>
         <div class="account">
             {% if request.user.is_authenticated %}
             <a class="nav-item" href="{% url 'mypage' %}">마이페이지</a>

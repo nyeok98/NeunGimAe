@@ -58,10 +58,15 @@
     <!--post로 받아와서 할 행동에 대한 정의-->
     <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <!--요청장소-->
-        <label for="Reemail">글쓴이</label>
-        <input type="text" id="inputreemail" name="reemail" required>
 
+        {% for account in accounts %}
+        <div class="new_content">
+            <div class="new_title">
+                <h2>글쓴이 : </h2>
+            </div>
+            {{account.username}}
+        </div>
+        {% endfor %}
         <div class="new_content">
             <div>
                 <div class="new_title">
@@ -160,7 +165,7 @@
 
         <button class="button_wide" type="submit" value="부탁하기">부탁하기</button>
 
-
+        
     </form>
 </div>
 
