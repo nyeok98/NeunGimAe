@@ -1,9 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Blog
-from NeunGimAe.account.models import Account
+from account.models import Account
 from django.utils import timezone
 # Create your views here.
-
 
 def main(request):
     blogs = Blog.objects.all()
@@ -11,7 +10,8 @@ def main(request):
 
 def new(request):
     blogs = Blog.objects.all()
-    return render(request, 'new.html', {'blogs': blogs})
+    accounts = Account.objects.all()
+    return render(request, 'new.html', {'blogs': blogs, 'accounts': accounts})
 
 def detail(request, blog_id):
     blog_detail = get_object_or_404(Blog, pk=blog_id)
@@ -56,7 +56,3 @@ def filter_place(request):
     print(blogs)
 
     return render(request, 'main.html', {'blogs': blogs})
-
-def userinfo(request):
-    accounts = Account.objects.all()
-    return render(request, 'new.html', {'accounts': accounts})
