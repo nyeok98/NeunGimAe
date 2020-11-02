@@ -59,7 +59,7 @@
     <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
-        {% for account in accounts %}
+        {% for account in accounts %}s
         <div class="new_content">
             <div class="new_title">
                 <h2>글쓴이 : </h2>

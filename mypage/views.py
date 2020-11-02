@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from .forms import CustomUserChangeForm
 from account.models import Account
 from main.models import Blog
+from account.models import Account
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -9,7 +10,8 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def mypage(request):
     blogs = Blog.objects.filter(reemail=request.user.email)
-    return render(request, 'mypage.html', {'blogs': blogs})
+    accounts = Account.objects.all()
+    return render(request, 'mypage.html', {'blogs': blogs, 'accounts': accounts})
 
 
 def profile_update(request):
