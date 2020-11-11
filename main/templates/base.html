@@ -1,37 +1,40 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
 
-<head>
+  <head>
     {% block head %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>는김에</title>
     {% endblock %}
-</head>
+  </head>
 
-<body>
-    <div class="nav-bar">
-        <a href="{% url 'main' %}"><img src="{% static 'image/logo.png' %}"></a>
-        <a href="{% url 'main' %}"><div class="logo">는김에</div></a>
-        <div class="account">
-            {% if request.user.is_authenticated %}
-            <a class="nav-item" href="{% url 'mypage' %}">마이페이지</a>
-            <br>
-            <a class="nav-item" href="{% url 'logout' %}">로그아웃</a>
-            {% else %}
-            <a class="nav-item" href="{% url 'register' %}">가입하기</a>
-            <br>
-            <a class="nav-item" href="{% url 'login' %}">로그인</a>
-            {% endif %}
+  <body>
+    <div class="contents-wrapper">
+      <div class="nav-bar">
+        <div class="logos">
+          <a href="{% url 'main' %}">
+            <img src="{% static 'image/new_logo.png' %}" class="logo-image" />
+          </a>
         </div>
+        <div class="account">
+          {% if request.user.is_authenticated %}
+          <a class="nav-item" href="{% url 'mypage' %}">마이페이지</a>
+          <br />
+          <a class="nav-item" href="{% url 'logout' %}">로그아웃</a>
+          {% else %}
+          <a class="nav-item" href="{% url 'register' %}">가입하기</a>
+          <br />
+          <a class="nav-item" href="{% url 'login' %}">로그인</a>
+          {% endif %}
+        </div>
+      </div>
+      {% block content %} {% endblock %}
     </div>
-    {% block content %}
-    {% endblock %}
-</body>
+  </body>
 
-<hr>
-<footer>NGA - All rights reserved(footer)</footer>
-
+  <hr />
+  <footer>NGA - All rights reserved(footer)</footer>
 </html>

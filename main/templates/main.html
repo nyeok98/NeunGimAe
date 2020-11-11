@@ -1,84 +1,75 @@
-
-{% extends 'base.html' %}
-{% load static %}
-
-{% block head %}
+{% extends 'base.html' %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/main.css' %}" />
-{% endblock %}
-
-{% block content %}
-
+{% endblock %} {% block content %}
 
 <div class="main">
-    <div class="main_header">
-        <h1>는김에</h1>
+  <div class="main_header">
+    <h1>는김에</h1>
+  </div>
+  <div class="main-filter">
+    <div class="filter-button">
+      <a href="{% url 'main' %}">전체</a>
     </div>
-    <div class="main-filter">
-        <div class="filter-button">
-            <a href="{% url 'main' %}">전체</a>
-        </div>
-        <div class="filter-button">
-            <form action="{% url 'filter' %}" method="get">
-                <input name="filter_place" value="흑석" style="display:none">
-                <input value="흑석" type="submit">
-            </form>
-        </div>
-        <div class="filter-button">
-            <form action="{% url 'filter' %}" method="get">
-                <input name="filter_place" value="정문" style="display:none">
-                <input value="정문" type="submit">
-            </form>
-        </div>
-        <div class="filter-button">
-            <form action="{% url 'filter' %}" method="get">
-                <input name="filter_place" value="중문" style="display:none">
-                <input value="중문" type="submit">
-            </form>
-        </div>
-        <div class="filter-button">
-            <form action="{% url 'filter' %}" method="get">
-                <input name="filter_place" value="후문" style="display:none">
-                <input value="후문" type="submit">
-            </form>
-        </div>
-        <div class="filter-button">
-            <form action="{% url 'filter' %}" method="get">
-                <input name="filter_place" value="상도" style="display:none">
-                <input value="상도" type="submit">
-            </form>
-        </div>
+    <div class="filter-button">
+      <form action="{% url 'filter' %}" method="get">
+        <input name="filter_place" value="흑석" style="display:none" />
+        <input value="흑석" type="submit" />
+      </form>
     </div>
-    <div class="main-content">
-        <div class="content-wrapper">
-            <div class="content-box">
-                <a href="{% url 'new' %}">나도 부탁하러 가기</a>
-            </div>
-        </div>
-        {% for blog in blogs %}
-        <div class="content-wrapper">
-            <div class="content-box">
-                <div class="item">
-                    <div class="req-place">{{blog.meet_place_select}}</div>
-                    <div class="req-title">{{blog.request_place}}</div>
-                    <div class="req-items-quantity">
-                       <div class="req-items">{{blog.request_item}}</div>
-                       <div class="req-quantity">{{blog.request_quantity}}개</div>
-                    </div>
-                </div>
-                <div class="time_left">
-                    <h4>남은 시간:
-                        {{blog.limited_time_hour}}시
-                        {{blog.limited_time_min}}분
-                        {{blog.limited_time_sec}}초 남음
-                    </h4>
-                </div>
-                <div class="fee">
-                    <h5>수수료: {{blog.fees}}</h5>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-        
+    <div class="filter-button">
+      <form action="{% url 'filter' %}" method="get">
+        <input name="filter_place" value="정문" style="display:none" />
+        <input value="정문" type="submit" />
+      </form>
     </div>
+    <div class="filter-button">
+      <form action="{% url 'filter' %}" method="get">
+        <input name="filter_place" value="중문" style="display:none" />
+        <input value="중문" type="submit" />
+      </form>
+    </div>
+    <div class="filter-button">
+      <form action="{% url 'filter' %}" method="get">
+        <input name="filter_place" value="후문" style="display:none" />
+        <input value="후문" type="submit" />
+      </form>
+    </div>
+    <div class="filter-button">
+      <form action="{% url 'filter' %}" method="get">
+        <input name="filter_place" value="상도" style="display:none" />
+        <input value="상도" type="submit" />
+      </form>
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="content-wrapper">
+      <div class="content-box">
+        <a href="{% url 'new' %}">나도 부탁하러 가기</a>
+      </div>
+    </div>
+    {% for blog in blogs %}
+    <div class="content-wrapper">
+      <div class="content-box">
+        <div class="item">
+          <div class="req-place">{{ blog.meet_place_select }}</div>
+          <div class="req-title">{{ blog.request_place }}</div>
+          <div class="req-items-quantity">
+            <div class="req-items">{{ blog.request_item }}</div>
+            <div class="req-quantity">{{ blog.request_quantity }}개</div>
+          </div>
+        </div>
+        <div class="time_left">
+          <h4>
+            남은 시간: {{ blog.limited_time_hour }}시 {{ blog.limited_time_min }}분
+            {{ blog.limited_time_sec }}초 남음
+          </h4>
+        </div>
+        <div class="fee">
+          <h5>수수료: {{ blog.fees }}</h5>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
