@@ -90,29 +90,6 @@ function init() {
 init();
 </script>
 
-<!--타이머는 작동이 안되네.... -->
-<p id="countdown"></p>
-
-<script>
-    const startingMinutes = 10;
-    // const startingMinutes = document.getElementById('limitiedmin')
-    let time = stratingMinutes * 60;
-
-    const countdownEl=document.getElementById('countdown');
-
-    setInterval(updateCountdwon, 1000);
-
-    function updateCountdown(){
-        const minutes = Math.floor(time/60);
-        let seconds = time%60;
-
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-
-        countdownEl.innerHTML = '${minutes} : ${seconds}';
-        time--;
-    }
-</script>
-
 <div class="new">
     <!--post로 받아와서 할 행동에 대한 정의-->
     <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
