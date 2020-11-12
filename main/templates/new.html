@@ -56,7 +56,7 @@
 
 <!--항목추가하기 : 근데 이게 아래 글작성 폼테그에 들어가면 작동이 안됨
     지금 위치에서는 작동 가능-->
-    
+
 <form class="js-form">
     <input type="text" placeholder="입력" />
 </form>
@@ -88,6 +88,29 @@ function init() {
   //input 에서 submit 되어 있을때,submitHandler함수가 실행되도록 이벤트 추가
 }
 init();
+</script>
+
+<!--타이머는 작동이 안되네.... -->
+<p id="countdown"></p>
+
+<script>
+    const startingMinutes = 10;
+    // const startingMinutes = document.getElementById('limitiedmin')
+    let time = stratingMinutes * 60;
+
+    const countdownEl=document.getElementById('countdown');
+
+    setInterval(updateCountdwon, 1000);
+
+    function updateCountdown(){
+        const minutes = Math.floor(time/60);
+        let seconds = time%60;
+
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        countdownEl.innerHTML = '${minutes} : ${seconds}';
+        time--;
+    }
 </script>
 
 <div class="new">
